@@ -78,7 +78,7 @@ MCA – University of Calicut (2023–2025)
 BSc Physics – University of Calicut (2019–2022)
 
 📍 Kerala, India
-📧 reshmakr013@gmail.com
+📧 reshmakr421@gmail.com
 
 🔗 LinkedIn
 
