@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reshma K R - .NET Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% {
+                opacity: 1;
+            }
+
+            51%, 100% {
+                opacity: 0;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        .skill-bar {
+            width: 0%;
+            transition: width 2s ease;
+        }
+
+            .skill-bar.animate {
+                width: var(--width);
+            }
+
+        .project-card {
+            transition: all 0.3s ease;
+        }
+
+            .project-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(0, 102, 204, 0.15);
+            }
+
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+
+            .nav-link.active {
+                /*                color: #0066CC;*/
+                color: #ec4899;
+            }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 50%, #ffffff 100%);
+        }
+
+        #typed-heading::after,
+        #typed-subheading::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% {
+                opacity: 1;
+            }
+
+            51%, 100% {
+                opacity: 0;
+            }
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-20px) translateX(10px);
+            }
+        }
+
+        @keyframes floatReverse {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+
+            50% {
+                transform: translateY(20px) translateX(-10px);
+            }
+        }
+
+       
+
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ec4899', 
+                        //primary: '#0066CC',
+                        secondary: '#F5F5F5'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-800">
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold text-primary">Reshma K R</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-primary">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-primary">About</a>
+                    <a href="#projects" class="nav-link text-gray-600 hover:text-primary">Projects</a>
+                    <a href="#cv" class="nav-link text-gray-600 hover:text-primary">Resume</a>
+                    <a href="#skills" class="nav-link text-gray-600 hover:text-primary">Skills</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-primary">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden w-8 h-8 flex items-center justify-center">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-primary">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-primary">About</a>
+                    <a href="#projects" class="nav-link text-gray-600 hover:text-primary">Projects</a>
+                    <a href="#cv" class="nav-link text-gray-600 hover:text-primary">Resume</a>
+                    <a href="#skills" class="nav-link text-gray-600 hover:text-primary">Skills</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-primary">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section id="home" class="min-h-screen relative overflow-hidden pt-20 bg-fixed bg-cover bg-center" style="background-image: url('https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pc-and-notebook-zoom-background-design-template-884dc8df665f24013d0eeca6b5169d6d_screen.jpg?ts=1587849974');">
+
+        <!-- Animated Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-black/40 via-blue-900/20 to-black/40 backdrop-blur-sm z-0 animate__animated animate__fadeIn"></div>
+
+        <!-- Floating Gradient Blobs -->
+        <!--<div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-indigo-500 rounded-full opacity-30 blur-3xl animate-[float_6s_ease-in-out_infinite]"></div>
+        <div class="absolute bottom-[-15%] right-[-10%] w-[500px] h-[500px] bg-pink-500 opacity-20 rounded-full blur-2xl animate-[floatReverse_8s_ease-in-out_infinite]"></div>-->
+        <!-- Main Content -->
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col items-center justify-center text-center min-h-[calc(100vh-5rem)] py-12 space-y-8">
+
+                <div class="inline-block px-5 py-2 bg-pink-100 text-pink-700 rounded-full text-sm font-medium shadow-md animate__animated animate__fadeInDown">
+                    💼 Open to New Opportunities
+                </div>
+
+                <h1 class="text-pink text-4xl sm:text-5xl md:text-6xl font-extrabold animate__animated animate__zoomIn drop-shadow-xl">
+                    Hi, I'm <span class="text-black-400">Reshma K R</span>
+                </h1>
+
+                <h2 id="dynamic-role" class="text-xl sm:text-2xl md:text-3xl text-gray-100 font-semibold tracking-wide typing-cursor"></h2>
+
+                <p class="text-white text-lg max-w-2xl mx-auto leading-relaxed animate__animated animate__fadeInUp animate__delay-1s">
+                    Passionate about building modern, scalable applications with clean architecture. Let's build something great together using Microsoft technologies!
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-4 mt-6 animate__animated animate__fadeInUp animate__delay-2s">
+                    <a href="#contact" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-full font-medium shadow-lg flex items-center gap-2 transition hover:shadow-pink-500/50">
+                        Contact Me <i class="ri-send-plane-line"></i>
+                    </a>
+                    <a href="#projects" class="bg-white/90 text-pink-700 hover:text-pink-800 hover:bg-white px-6 py-3 rounded-full font-medium shadow-md flex items-center gap-2 transition hover:shadow-pink-300/50">
+                        See Projects <i class="ri-external-link-line"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+
+
+
+    <section id="about" class="py-20 bg-gradient-to-br from-blue-50 via-white to-blue-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-black mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+                <p class="text-gray-700 max-w-2xl mx-auto mt-4">
+                    A brief introduction to my background, passion for technology, and the journey that shaped me as a developer.
+                </p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in flex justify-center">
+                    <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-xl ring-4 ring-blue-300">
+                        <img src="resh.jpg" alt="Reshma K R" class="w-full h-full object-cover object-top">
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-blue-800 mb-4">Who I Am</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        I’m <strong class="text-blue-900">Reshma K R</strong>, a passionate software developer with an MCA from Calicut University. My background in Physics refined my logical thinking, which I now apply as a <strong>.NET Intern</strong> at DC Infotech.
+                    </p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        I love learning and creating with <span class="text-blue-800 font-medium">Microsoft technologies</span>—especially when crafting clean, scalable solutions from frontend to backend.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm">.NET</span>
+                        <span class="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm">C#</span>
+                        <span class="px-4 py-2 bg-teal-100 text-teal-800 rounded-full text-sm">ASP.NET</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="projects" class="py-20 bg-gradient-to-b from-sky-50 via-white to-sky-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">✨ Featured Projects</h2>
+                <div class="w-20 h-1 bg-pink-500 mx-auto mb-4 rounded-full"></div>
+                <p class="text-gray-700 max-w-2xl mx-auto text-lg">Some of my proudest work showcasing full-stack development and domain knowledge.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 justify-center">
+                <!-- Project Card 1 -->
+                <div class="relative group bg-white/90 backdrop-blur-md rounded-xl p-6 shadow-lg transition-transform hover:-translate-y-2 hover:shadow-2xl border border-sky-200 max-w-md mx-auto">
+                    <div class="overflow-hidden rounded-lg mb-4">
+                        <img src="autism.jpg"
+                             alt="Autism Detection System"
+                             class="w-full h-40 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <h3 class="text-xl font-semibold text-sky-800 mb-2">Autism Detection System</h3>
+                    <p class="text-gray-600 mb-4 text-sm">ASP.NET & C# powered app that evaluates autism tendencies through questionnaires and suggests nearby hospitals using geolocation APIs.</p>
+                    <div class="flex flex-wrap gap-2 mb-4 text-xs">
+                        <span class="flex items-center gap-1 px-3 py-1 bg-sky-100 text-sky-700 rounded-full"><i class="ri-code-box-line"></i> ASP.NET</span>
+                        <span class="flex items-center gap-1 px-3 py-1 bg-sky-100 text-sky-700 rounded-full"><i class="ri-code-line"></i> C#</span>
+                        <span class="flex items-center gap-1 px-3 py-1 bg-sky-100 text-sky-700 rounded-full"><i class="ri-database-2-line"></i> SQL Server</span>
+                        <span class="flex items-center gap-1 px-3 py-1 bg-sky-100 text-sky-700 rounded-full"><i class="ri-hospital-line"></i> Healthcare</span>
+                    </div>
+                    <button onclick="openModal('autismModal')" class="text-sky-600 font-semibold hover:text-sky-800 transition-all text-sm flex items-center group">
+                        <span>View Details</span>
+                        <i class="ri-arrow-right-line ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </button>
+
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="relative group bg-white/90 backdrop-blur-md rounded-xl p-6 shadow-lg transition-transform hover:-translate-y-2 hover:shadow-2xl border border-emerald-200 max-w-md mx-auto">
+                    <div class="overflow-hidden rounded-lg mb-4">
+                        <img src="pc.jpg"
+                             alt="PC Customization Platform"
+                             class="w-full h-40 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <h3 class="text-xl font-semibold text-emerald-800 mb-2">PC Customization Platform</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Django e-commerce platform for customizing PC builds, checking compatibility, and optimizing pricing with an intuitive UI.</p>
+                    <div class="flex flex-wrap gap-2 mb-4 text-xs">
+                        <span class="flex items-center gap-1 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full"><i class="ri-code-s-slash-line"></i> Django</span>
+                        <span class="flex items-center gap-1 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full"><i class="ri-python-line"></i> Python</span>
+                        <span class="flex items-center gap-1 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full"><i class="ri-shopping-cart-2-line"></i> E-commerce</span>
+                        <span class="flex items-center gap-1 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full"><i class="ri-global-line"></i> Web Development</span>
+                    </div>
+                    <button onclick="openModal('pcModal')" class="text-sky-600 font-semibold hover:text-sky-800 transition-all text-sm flex items-center group">
+                        <span>View Details</span>
+                        <i class="ri-arrow-right-line ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="cv" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Resume</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    A snapshot of my academic achievements, work experience, and certifications.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Education -->
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+                            <i class="ri-graduation-cap-line text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900">Education</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-medium text-gray-900">MCA – Master of Computer Applications</h4>
+                            <p class="text-sm text-gray-600">Calicut University (2023 – 2025)</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-900">BSc in Physics</h4>
+                            <p class="text-sm text-gray-600">University of Calicut (2019 – 2022)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience -->
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+                            <i class="ri-briefcase-line text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900">Experience</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-medium text-gray-900">.NET Intern</h4>
+                            <p class="text-sm text-gray-600">DC Infotech (2023 – Present)</p>
+                            <p class="text-sm text-gray-600 mt-2">Hands-on development with ASP.NET, C#, and SQL Server for building secure web applications.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+                            <i class="ri-award-line text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900">Certifications</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-medium text-gray-900">IBM Business Intelligence Essentials</h4>
+                            <p class="text-sm text-gray-600">Completed via Coursera</p>
+                            <a href="https://coursera.org/verify/X6K5GYK6NU2D" class="text-sm text-blue-600 hover:text-blue-700 mt-2 inline-block">View Certificate <i class="ri-external-link-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 fade-in">
+                <a href="reshmacv.pdf" download="Reshma_KR_CV.pdf" class="inline-block bg-pink-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium shadow-md">
+                    <i class="ri-download-line"></i> Download Full CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!---->
+
+
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Skills & Expertise</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    A comprehensive overview of my technical skills and proficiency levels
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Programming Languages -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-lg mb-4">
+                        <i class="ri-code-s-slash-line text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-blue-600 mb-3">Programming Languages</h3>
+                    <p class="text-gray-600 mb-4">
+                        Proficient in multiple programming languages for various development needs
+                    </p>
+                    <div class="space-y-3">
+                        <!-- Java -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">Java</span>
+                            <span class="text-sm text-gray-500">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                        <!-- Python -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">Python</span>
+                            <span class="text-sm text-gray-500">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                        <!-- JavaScript -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">JavaScript</span>
+                            <span class="text-sm text-gray-500">88%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-lg mb-4">
+                        <i class="ri-global-line text-2xl text-blue-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-blue-500 mb-3">Web Development</h3>
+                    <p class="text-gray-600 mb-4">
+                        Modern web technologies for creating responsive and interactive applications
+                    </p>
+                    <div class="space-y-3">
+                        <!-- Bootstrap -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">Bootstrap</span>
+                            <span class="text-sm text-gray-500">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                        <!-- HTML/CSS -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">HTML/CSS</span>
+                            <span class="text-sm text-gray-500">92%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 92%"></div>
+                        </div>
+                        <!-- Django -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">Django</span>
+                            <span class="text-sm text-gray-500">50%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 50%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database & Tools -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-lg mb-4">
+                        <i class="ri-database-2-line text-2xl text-blue-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-blue-500 mb-3">Database & Tools</h3>
+                    <p class="text-gray-600 mb-4">
+                        Database management and development tools for efficient project delivery
+                    </p>
+                    <div class="space-y-3">
+                        <!-- MySQL -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">MySQL</span>
+                            <span class="text-sm text-gray-500">87%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 87%"></div>
+                        </div>
+                        <!-- SQL -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">SQL</span>
+                            <span class="text-sm text-gray-500">78%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 78%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools Logos -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-10 gap-x-6">
+                <!-- Java -->
+                <div class="text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mx-auto mb-3">
+                        <i class="ri-code-s-slash-line text-2xl text-orange-700"></i>
+                    </div>
+                    <p class="text-sm font-medium">Java</p>
+                </div>
+
+                <!-- Python -->
+                <div class="text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mx-auto mb-3">
+                        <i class="ri-python-line text-2xl text-yellow-500"></i>
+                    </div>
+                    <p class="text-sm font-medium">Python</p>
+                </div>
+
+                <!-- HTML5 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mx-auto mb-3">
+                        <i class="ri-html5-line text-2xl text-orange-500"></i>
+                    </div>
+                    <p class="text-sm font-medium">HTML5</p>
+                </div>
+
+                <!-- CSS3 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mx-auto mb-3">
+                        <i class="ri-css3-line text-2xl text-blue-600"></i>
+                    </div>
+                    <p class="text-sm font-medium">CSS3</p>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mx-auto mb-3">
+                        <i class="ri-javascript-line text-2xl text-yellow-500"></i>
+                    </div>
+                    <p class="text-sm font-medium">JavaScript</p>
+                </div>
+
+                <!-- Bootstrap -->
+                <div class="text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mx-auto mb-3">
+                        <i class="ri-bootstrap-line text-2xl text-purple-600"></i>
+                    </div>
+                    <p class="text-sm font-medium">Bootstrap</p>
+                </div>
+
+                <!-- SQL Server -->
+                <div class="text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mx-auto mb-3">
+                        <i class="ri-database-2-line text-2xl text-gray-800"></i>
+                    </div>
+                    <p class="text-sm font-medium">SQL Server</p>
+                </div>
+
+                <!-- C# / ASP.NET -->
+                <div class="text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mx-auto mb-3">
+                        <i class="ri-window-line text-2xl text-blue-700"></i>
+                    </div>
+                    <p class="text-sm font-medium">C# / ASP.NET</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    I'm always open to discussing new opportunities and interesting projects. Let's connect!
+                </p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-8">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl mr-4">
+                                <i class="ri-mail-line ri-lg text-pink-500"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-900">Email</p>
+                                <a href="mailto:reshmakr421@gmail.com" class="text-blue-500 hover:text-pink-700 transition-colors">
+                                    reshmakr421@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl mr-4">
+                                <i class="ri-phone-line ri-lg text-pink-500"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-900">Phone</p>
+                                <a href="tel:+919539437150" class="text-blue-500 hover:text-pink-700 transition-colors">
+                                    +91 9539437150
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl mr-4">
+                                <i class="ri-linkedin-line ri-lg text-pink-500"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-900">LinkedIn</p>
+                                <a href="https://www.linkedin.com/in/reshma-k-r-18067a359"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="text-blue-600 hover:text-pink-700 transition-colors">
+                                    linkedin.com/in/reshma-kr-18067a359
+                                </a>
+                            </div>
+                        </div>
+                        <!-- GitHub Section (New) -->
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl mr-4">
+                                <i class="ri-github-line ri-lg text-pink-500"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-900">GitHub</p>
+                                <a href="https://github.com/reshma-421"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="text-blue-600 hover:text-pink-700 transition-colors">
+                                    github.com/reshma-421
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-8">Send a Message</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white py-3 !rounded-button hover:bg-pink-500 transition-colors font-semibold whitespace-nowrap">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">Reshma K R</h3>
+                <p class="text-gray-400 mb-6">Aspiring .NET Developer | MCA Graduate | Fast Learner</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="mailto:reshmakr421@gmail.com" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                        <i class="ri-mail-line"></i>
+                    </a>
+                    <a href="tel:+919539437150" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                        <i class="ri-phone-line"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/reshma-k-r-18067a359/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                        <i class="ri-linkedin-line"></i>
+                    </a>
+                    <a href="https://github.com/reshma-421" target="_blank" rel="noopener noreferrer" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                        <i class="ri-github-line"></i>
+                    </a>
+
+                </div>
+                <p class="text-gray-500 text-sm">
+                    © 2025 Reshma K R. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script id="scroll-animations">
+        document.addEventListener('DOMContentLoaded', function () {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        if (entry.target.closest('#skills')) {
+                            const skillBars = entry.target.querySelectorAll('.skill-bar');
+                            skillBars.forEach(bar => {
+                                setTimeout(() => {
+                                    bar.classList.add('animate');
+                                }, 200);
+                            });
+                        }
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+    <script id="navigation">
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            mobileMenuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+                // Toggle menu icon between menu and close
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('ri-close-line');
+                    icon.classList.add('ri-menu-line');
+                } else {
+                    icon.classList.remove('ri-menu-line');
+                    icon.classList.add('ri-close-line');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                    mobileMenu.classList.add('hidden');
+                    // Reset menu icon when a link is clicked
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('ri-close-line');
+                    icon.classList.add('ri-menu-line');
+                });
+            });
+
+            window.addEventListener('scroll', function () {
+                const sections = document.querySelectorAll('section[id]');
+                const scrollPos = window.scrollY + 100;
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="contact-form">
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const message = formData.get('message');
+                alert(`Thank you ${name}! Your message has been received. I'll get back to you soon at ${email}.`);
+                this.reset();
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const typeText = (text, element, speed = 90, callback) => {
+                let index = 0;
+                element.textContent = '';
+                const timer = setInterval(() => {
+                    if (index < text.length) {
+                        element.textContent += text.charAt(index);
+                        index++;
+                    } else {
+                        clearInterval(timer);
+                        if (callback) callback();
+                    }
+                }, speed);
+            };
+
+            const heading = document.getElementById('typed-heading');
+            const subheading = document.getElementById('typed-subheading');
+
+            typeText("Hi, I'm Reshma K R", heading, 90, () => {
+                setTimeout(() => {
+                    typeText("MCA Graduate", subheading, 75);
+                }, 500);
+            });
+        });
+    </script>
+    
+
+
+    <!-- Autism Detection Modal -->
+    <div id="autismModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-2xl mx-4 p-6 relative">
+            <button onclick="closeModal('autismModal')" class="absolute top-4 right-4 text-gray-500 hover:text-red-600 text-xl">&times;</button>
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">Autism Detection System</h3>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                A web application built with ASP.NET and C# to assist in early autism detection through an interactive questionnaire. Users receive results instantly and are guided to nearby hospitals for further consultation.
+            </p>
+            <ul class="list-disc list-inside text-gray-600 mb-4">
+                <li>Interactive diagnostic quiz</li>
+                <li>Geolocation for hospital suggestions</li>
+                <li>Admin panel for record management</li>
+            </ul>
+            <a href="https://github.com/yourusername/autism-detection-system" target="_blank"
+               class="inline-block mt-4 text-sky-600 hover:text-sky-800 font-medium transition">
+                View on GitHub →
+            </a>
+        </div>
+    </div>
+
+    <!-- PC Customization Modal -->
+    <div id="pcModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-2xl mx-4 p-6 relative">
+            <button onclick="closeModal('pcModal')" class="absolute top-4 right-4 text-gray-500 hover:text-red-600 text-xl">&times;</button>
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">PC Customization Platform</h3>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                This Django-based e-commerce web application allows users to build custom PC configurations by selecting individual components like CPU, GPU, RAM, etc. It performs compatibility checks, compares specs, and optimizes cost using pricing algorithms.
+            </p>
+            <ul class="list-disc list-inside text-gray-600 mb-4">
+                <li>Real-time component compatibility checks</li>
+                <li>Secure authentication & cart system</li>
+                <li>Admin dashboard for inventory & pricing</li>
+            </ul>
+            <a href="https://github.com/yourusername/pc-customizer" target="_blank"
+               class="inline-block mt-4 text-sky-600 hover:text-sky-800 font-medium transition">
+                View on GitHub →
+            </a>
+        </div>
+    </div>
+    <script>
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const roles = ["MCA Graduate", ".NET Developer", "Full-Stack Enthusiast", "Clean Code Advocate"];
+            const subheading = document.getElementById('dynamic-role');
+            let roleIndex = 0;
+            let charIndex = 0;
+
+            function typeRole() {
+                if (charIndex < roles[roleIndex].length) {
+                    subheading.textContent += roles[roleIndex].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeRole, 80);
+                } else {
+                    setTimeout(eraseRole, 1500);
+                }
+            }
+
+            function eraseRole() {
+                if (charIndex > 0) {
+                    subheading.textContent = roles[roleIndex].substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(eraseRole, 50);
+                } else {
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    setTimeout(typeRole, 500);
+                }
+            }
+
+            typeRole();
+        });
+    </script>
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Go to top"
+            class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-pink-600 text-white shadow-lg hover:bg-pink-700 transition-all hidden">
+        <i class="ri-arrow-up-line text-2xl"></i>
+    </button>
+
+    <script>
+        // Show/hide button based on scroll
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('hidden');
+            } else {
+                backToTop.classList.add('hidden');
+            }
+        });
+
+        // Scroll to top on click
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+</html>
